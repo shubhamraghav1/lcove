@@ -91,7 +91,6 @@
   height: 100%;
   width: 6px;
   display: inline-block;
-  
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
@@ -120,6 +119,12 @@
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+img {
+  opacity: 0.5;
+  -webkit-animation: none;
+  animation: none;
 }
 
 </style>
@@ -158,6 +163,10 @@
     <div class="rect1"></div>
     <div class="rect2"></div>
     <div class="rect3"></div>
+  </div>
+
+  <div id="imgDIV" class="spinnerScanning">
+    <img src="./model.jpeg" height="200" width="200"/>
   </div>
 	</div>
 
@@ -231,6 +240,7 @@ m.addEventListener("markerFound", (e)=>{
 var domElement = document.querySelector('.spinnerScanning')
 
 document.getElementById("myDIV").style.display = "none";
+document.getElementById("imgDIV").style.display = "none";
 
    console.log("found")
 })
@@ -238,6 +248,7 @@ document.getElementById("myDIV").style.display = "none";
 m.addEventListener("markerLost", (e)=>{
 
 document.getElementById("myDIV").style.display = "";
+document.getElementById("imgDIV").style.display = "";
 
 
    console.log("lost")
