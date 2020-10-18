@@ -1,0 +1,249 @@
+
+
+    <head>
+    
+
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!--<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>-->
+<!--<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>-->
+
+<!--<script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>-->
+
+<!--checking animation alon path scripts-->
+
+<!--<script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>-->
+
+  <!--<script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>-->
+<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+
+<!--<script>
+  if(window.navigator.userAgent.indexOf("OPR") > -1 || window.navigator.userAgent.indexOf("Opera") > -1){
+            window.location = "googlechrome://navigate?url=https://wnlc0bcgl9ycopmmryqgha-on.drv.tw/webar marker test.html";
+      }
+      </script>-->
+
+
+     </head>
+
+     <style>
+      .arjs-loader {
+        position:fixed;
+          top:45%;
+          left:52%;
+          transform: translate(-50%, -50%);
+       }
+      .arjs {
+          border: 4px solid #F3F3F3;
+          border-radius: 50%;
+          border-top: 4px solid #3498DB;
+          width: 70px;
+          height: 70px;
+          -webkit-animation: spin 2s linear infinite; 
+          animation: spin 2s linear infinite;
+          }
+        .arjs-txt {
+          /* position:fixed;
+          top:55%;
+          transform: translate(-50%, -50%); */
+          text-align: center;
+          margin-top:20px;
+          margin-left:-45px;
+          font-size: 1.25em;
+          color: white;
+            }
+  /* Safari */
+  @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+  /* .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  } */
+</style>
+
+
+
+<!-- spinner scanning -->
+<style>
+.spinnerScanning {
+  margin: 100px auto;
+  height: 40px;
+  text-align: center;
+}
+
+.spinnerScanning label {
+  display: block;
+  color: #fff;
+  font-size: 200%;
+}
+
+.spinnerScanning > div {
+  background-color: #fff;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinnerScanning .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinnerScanning .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+    }
+  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+</style>
+
+    <body style='margin : 0px; overflow: hidden;'>
+      <div class="arjs-loader">
+        <div class="arjs"></div>
+        <div class="arjs-txt">Loading, please wait...</div>
+      </div>
+  
+
+         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+
+
+
+<div id="message" style="display:none; z-index: 1"><img src="https://raw.githubusercontent.com/shubhamraghav1/web/master/tap%20allow%20to%20continue.png"></div>
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+       <script>
+        //When the page has loaded.
+        $( document ).ready(function(){
+            $('#message').fadeIn('slow', function(){
+               $('#message').delay(5000).fadeOut(); 
+            });
+        });
+        </script>
+
+
+		<button id ="button" onclick="nextScene()">
+     HIDE OBJECTS
+    </button>
+
+      <!-- Scanning animation when the marker are not visible -->
+  <div id="myDIV" class="spinnerScanning">
+    <label>Scanning</label>
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+  </div>
+	</div>
+
+
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3 
+        renderer='antialias: true renderer='logarithmicDepthBuffer: true;' shadow="type: pcfsoft">
+<script>
+// Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+const sceneEl = document.querySelector('a-scene');
+sceneEl.addEventListener('loaded', () => {
+    sceneEl.camera = new THREE.PerspectiveCamera();
+});
+</script>
+
+
+            <a-nft
+            type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/aimg/aimg/aimg'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5' position="0 0 0">
+
+<!--<a-entity
+                gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf'
+                scale="10 10 10"
+                position="0 0 0"
+                >-->
+<a-entity
+                gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/master/2bhk%20layout.gltf'
+                scale="60 60 60"
+                position="-100 0 400"
+                >
+
+<a-entity gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/master/2bhk%20bath.gltf'
+                scale="1 1 1"
+                position="0 0 0">
+</a-entity>
+
+<a-entity gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/master/2bhk%20table.gltf'
+                scale="1 1 1"
+                position="0 0 0">
+</a-entity>
+
+<a-entity gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/master/2bhk%20sofa.gltf'
+                scale="1 1 1"
+                position="0 0 0">
+</a-entity>
+
+<a-entity gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githubusercontent.com/shubhamraghav1/web/master/2bhk%20bed.gltf'
+                scale="1 1 1"
+                position="0 0 0">
+</a-entity>
+
+</a-entity>
+
+            
+
+ 
+
+           </a-nft>
+        
+        <a-entity camera camera="far:100; near:0.1"></a-entity>
+        </a-scene>
+
+
+
+
+
+
+<script type="text/javascript">
+var m = document.querySelector("a-nft")
+
+m.addEventListener("markerFound", (e)=>{
+var domElement = document.querySelector('.spinnerScanning')
+
+document.getElementById("myDIV").style.display = "none";
+
+   console.log("found")
+})
+
+m.addEventListener("markerLost", (e)=>{
+
+document.getElementById("myDIV").style.display = "";
+
+
+   console.log("lost")
+})  
+</script>
+
+
+
+    </body>
