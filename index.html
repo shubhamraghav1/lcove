@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MYSTICAL</title>
+    <title>KALPANIX</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,6 +29,25 @@
  
   </model-viewer>
 </div>
+  <//>
+    <div id="card">
+     <model-viewer id ="MODEL2"
+      camera-controls src="/SheenChair.glb"
+      alt="A 3D model of a shoe" 
+      ar camera-orbit="33deg 67deg auto"
+      ios-src="/chair-varient.usdz" shadow-intensity="1">
+      <button slot="ar-button" class="ar-button">View in your space</button>
+      <div id="ar-prompt">
+        <img src="https://cdn.khronos.org/assets/blog/live-gltf-asset-editing-in-your-browsereven-in-ar/hand.png">
+      </div>
+       <div class="control">
+         <div>Variant: <select id="variant"></select></div>
+       </div>
+ <//>
+  </model-viewer>
+</div>
+    
+    
  </body>
 </html>
 
@@ -46,6 +65,9 @@
 
     <script>
       const modelViewerVariants = document.querySelector("model-viewer#chair");
+      
+       const modelViewerVariants = document.querySelector("model-viewer#MODEL2");
+      
       const select = document.querySelector('#variant');
       modelViewerVariants.addEventListener('load', () => {
       const names = modelViewerVariants.availableVariants;
