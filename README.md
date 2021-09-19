@@ -1,1 +1,1 @@
-# kalpanix
+# Chair demo
