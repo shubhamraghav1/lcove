@@ -10,6 +10,10 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
     <script src="https://unpkg.com/focus-visible/dist/focus-visible.js" defer></script>
     <script src="/utils.js"></script>
+    
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script src="https://modelviewer.dev/node_modules/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
     </head>
   <body>
     
@@ -17,7 +21,7 @@
      <model-viewer id ="chair"
       camera-controls src="/BED_NEW.glb"
       alt="A 3D model of a shoe" 
-      ar camera-orbit="33deg 67deg auto"
+      ar ar-modes="webxr scene-viewer quick-look" camera-orbit="33deg 67deg auto"
       ios-src="/NEW_BED.usdz" ar-scale="fixed" shadow-intensity="1">
       <button slot="ar-button" class="ar-button">View in your space</button>
       <div id="ar-prompt">
@@ -34,7 +38,7 @@
      <model-viewer id ="MODEL2"
       camera-controls src="/BED_NEW_CLOSED.glb"
       alt="A 3D model of a shoe" 
-      ar camera-orbit="33deg 67deg auto"
+      ar ar-modes="webxr scene-viewer quick-look" camera-orbit="33deg 67deg auto"
       ios-src="/NEW_BED_CLOSED.usdz" ar-scale="fixed" shadow-intensity="1">
       <button slot="ar-button" class="ar-button">View in your space</button>
       <div id="ar-prompt">
